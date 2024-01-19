@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('stage-1') {
+        stage('checkout code') {
             steps {
-                git branch: 'main', credentialsId: 'aws', url: 'https://github.com/medasravanthi/project-2-maven-jenkins-CICD.git'
+                checkout scm
             }
         }
    
