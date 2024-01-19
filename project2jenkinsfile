@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('stage1') {
+        stage('stage-1') {
             steps {
-                  git branch: 'main', credentialsId: 'aws', url: 'https://github.com/medasravanthi/project-2-maven-jenkins-CICD.git'
+                git branch: 'main', credentialsId: 'aws', url: 'https://github.com/medasravanthi/project-2-maven-jenkins-CICD.git'
             }
         }
    
@@ -28,11 +28,10 @@ pipeline {
         stage('deployment') {
             steps {
                 
-              deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://34.222.65.18:8080/')], contextPath: null, war: 'webapp/target/*.war'
+               deploy adapters: [tomcat8(credentialsId: 'tomcat8', path: '', url: 'http://34.222.65.18:8080/')], contextPath: null, war: '**/*.war'
 
             }
         }
         
     }
 }
-
