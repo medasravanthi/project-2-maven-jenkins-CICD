@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('stage1') {
+        stage('checkout code') {
             steps {
-                  git branch: 'main', credentialsId: 'terraform', url: 'https://github.com/nareshdevopscloud/project-maven-jenkins-CI-CD.git'
+                  checkout scm
             }
         }
    
